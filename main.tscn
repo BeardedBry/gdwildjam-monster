@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtfaknj50ty2y"]
+
+[ext_resource type="PackedScene" uid="uid://b33t7wcljh8vj" path="res://scenes/zombie.tscn" id="1_g7tiy"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_1u534"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s1cy7"]
+sky_top_color = Color(0.611765, 0.760784, 0.901961, 1)
+sky_horizon_color = Color(0.701961, 0.731373, 0.757843, 1)
+ground_bottom_color = Color(0.196078, 0.164706, 0.129412, 1)
+ground_horizon_color = Color(0.701961, 0.731373, 0.757843, 1)
+
+[sub_resource type="Sky" id="Sky_2apby"]
+sky_material = SubResource("ProceduralSkyMaterial_s1cy7")
+
+[sub_resource type="Environment" id="Environment_5cmo1"]
+background_mode = 2
+sky = SubResource("Sky_2apby")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hicbm"]
+size = Vector2(20, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ch0vj"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x0y38"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.975917, -0.168325, 0.138756, 0, 0.636078, 0.771625, -0.218143, 0.753041, -0.620759, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 101.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5cmo1")
+
+[node name="maxdamage_zombie-low-poly" parent="." instance=ExtResource("1_g7tiy")]
+transform = Transform3D(-1, 0, -2.62269e-07, 0, 1, 0, 2.62269e-07, 0, -1, 0, 0.204062, 0)
+script = ExtResource("2_1u534")
+
+[node name="neck" type="Node3D" parent="maxdamage_zombie-low-poly"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29011e-08, 1.32343, -0.0873193)
+
+[node name="Camera3D" type="Camera3D" parent="maxdamage_zombie-low-poly/neck"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -7.35137e-08, 0, 7.35137e-08, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_hicbm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ch0vj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.47373, 0, 0, 0, 1.62289, 0, 0, 0, 0.397918, 0, 0.816522, 3.8277)
+mesh = SubResource("BoxMesh_x0y38")
