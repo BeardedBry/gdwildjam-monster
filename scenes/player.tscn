@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://boswq3chmuyvv"]
+
+[ext_resource type="Script" path="res://scenes/CameraController.gd" id="1_viv8g"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dfygn"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CharacterCollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_dfygn")
+
+[node name="CameraController" type="Node3D" parent="."]
+script = ExtResource("1_viv8g")
+
+[node name="CameraOverShoulderPivot" type="Marker3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+
+[node name="CameraSpringArm" type="SpringArm3D" parent="CameraController"]
+transform = Transform3D(-1, 2.99003e-08, -8.21505e-08, 0, 0.939693, 0.34202, 8.74228e-08, 0.34202, -0.939693, 0, 1, 0)
+
+[node name="CameraThirdPersonPivot" type="Marker3D" parent="CameraController/CameraSpringArm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="PlayerCamera" type="Camera3D" parent="CameraController"]
+transform = Transform3D(-1, -2.99004e-08, 8.21505e-08, 0, 0.939693, 0.34202, -8.74228e-08, 0.34202, -0.939693, 0, 3.74, -7.52)
+
+[node name="CameraRayCast" type="RayCast3D" parent="CameraController/PlayerCamera"]

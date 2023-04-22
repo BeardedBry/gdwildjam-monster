@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtfaknj50ty2y"]
+[gd_scene load_steps=8 format=3 uid="uid://dtfaknj50ty2y"]
 
 [ext_resource type="PackedScene" uid="uid://b33t7wcljh8vj" path="res://scenes/zombie.tscn" id="1_g7tiy"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="2_1u534"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s1cy7"]
 sky_top_color = Color(0.611765, 0.760784, 0.901961, 1)
@@ -38,12 +37,12 @@ environment = SubResource("Environment_5cmo1")
 
 [node name="maxdamage_zombie-low-poly" parent="." instance=ExtResource("1_g7tiy")]
 transform = Transform3D(-1, 0, -2.62269e-07, 0, 1, 0, 2.62269e-07, 0, -1, 0, 0.204062, 0)
-script = ExtResource("2_1u534")
 
 [node name="neck" type="Node3D" parent="maxdamage_zombie-low-poly"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29011e-08, 1.32343, -0.0873193)
 
 [node name="Camera3D" type="Camera3D" parent="maxdamage_zombie-low-poly/neck"]
+transform = Transform3D(-1, -6.78803e-08, -9.63594e-08, -9.05069e-08, 0.965926, 0.258819, 7.55073e-08, 0.258819, -0.965926, 5.24538e-07, 1, -2)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, -7.35137e-08, 0, 7.35137e-08, 1, 0, 0, 0)

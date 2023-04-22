@@ -1,0 +1,90 @@
+[gd_scene load_steps=17 format=3 uid="uid://cu08a7we4nck2"]
+
+[ext_resource type="PackedScene" uid="uid://y6a8swealqoh" path="res://assets/bigfoot.glb" id="1_d344y"]
+[ext_resource type="Texture2D" uid="uid://be035dccj3glj" path="res://assets/bigfoot_tex.png" id="2_3cqmk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1chn1"]
+albedo_texture = ExtResource("2_3cqmk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k1tth"]
+albedo_texture = ExtResource("2_3cqmk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hplsv"]
+albedo_texture = ExtResource("2_3cqmk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o28fk"]
+albedo_texture = ExtResource("2_3cqmk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ccprh"]
+albedo_texture = ExtResource("2_3cqmk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ptbdi"]
+albedo_texture = ExtResource("2_3cqmk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rcuc6"]
+albedo_texture = ExtResource("2_3cqmk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7scxj"]
+albedo_texture = ExtResource("2_3cqmk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exqcw"]
+albedo_texture = ExtResource("2_3cqmk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsxve"]
+albedo_texture = ExtResource("2_3cqmk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jojym"]
+albedo_texture = ExtResource("2_3cqmk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xcopx"]
+albedo_texture = ExtResource("2_3cqmk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gbluq"]
+albedo_texture = ExtResource("2_3cqmk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kyb1h"]
+albedo_texture = ExtResource("2_3cqmk")
+
+[node name="bigfoot" instance=ExtResource("1_d344y")]
+
+[node name="foot_L" parent="armature/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_1chn1")
+
+[node name="foot_R" parent="armature/Skeleton3D" index="1"]
+material_override = SubResource("StandardMaterial3D_k1tth")
+
+[node name="hand_L" parent="armature/Skeleton3D" index="2"]
+material_override = SubResource("StandardMaterial3D_hplsv")
+
+[node name="hand_R" parent="armature/Skeleton3D" index="3"]
+material_override = SubResource("StandardMaterial3D_o28fk")
+
+[node name="head" parent="armature/Skeleton3D" index="4"]
+material_override = SubResource("StandardMaterial3D_ccprh")
+
+[node name="lower_arm_L" parent="armature/Skeleton3D" index="5"]
+material_override = SubResource("StandardMaterial3D_ptbdi")
+
+[node name="lower_arm_R" parent="armature/Skeleton3D" index="6"]
+material_override = SubResource("StandardMaterial3D_rcuc6")
+
+[node name="lower_leg_L" parent="armature/Skeleton3D" index="7"]
+material_override = SubResource("StandardMaterial3D_7scxj")
+
+[node name="lower_leg_R" parent="armature/Skeleton3D" index="8"]
+material_override = SubResource("StandardMaterial3D_exqcw")
+
+[node name="torso" parent="armature/Skeleton3D" index="9"]
+material_override = SubResource("StandardMaterial3D_nsxve")
+
+[node name="upper_arm_L" parent="armature/Skeleton3D" index="10"]
+material_override = SubResource("StandardMaterial3D_jojym")
+
+[node name="upper_arm_R" parent="armature/Skeleton3D" index="11"]
+material_override = SubResource("StandardMaterial3D_xcopx")
+
+[node name="upper_leg_L" parent="armature/Skeleton3D" index="12"]
+material_override = SubResource("StandardMaterial3D_gbluq")
+
+[node name="upper_leg_R" parent="armature/Skeleton3D" index="13"]
+material_override = SubResource("StandardMaterial3D_kyb1h")

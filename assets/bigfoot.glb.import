@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://btgxgnx1fmo3l"
-path="res://.godot/imported/maxdamage_zombie-low-poly.gltf-1f80522cf939e63ad7f816bf5c536392.scn"
+uid="uid://y6a8swealqoh"
+path="res://.godot/imported/bigfoot.glb-6091da3705bfcd78fb03d09ef13b0ad0.scn"
 
 [deps]
 
-source_file="res://assets/gltf/maxdamage_zombie-low-poly.gltf"
-dest_files=["res://.godot/imported/maxdamage_zombie-low-poly.gltf-1f80522cf939e63ad7f816bf5c536392.scn"]
+source_file="res://assets/bigfoot.glb"
+dest_files=["res://.godot/imported/bigfoot.glb-6091da3705bfcd78fb03d09ef13b0ad0.scn"]
 
 [params]
 
