@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtfaknj50ty2y"]
+[gd_scene load_steps=8 format=3 uid="uid://dtfaknj50ty2y"]
 
-[ext_resource type="PackedScene" uid="uid://b33t7wcljh8vj" path="res://scenes/zombie.tscn" id="1_g7tiy"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="2_1u534"]
+[ext_resource type="PackedScene" uid="uid://xpul15jv1023" path="res://scenes/big_foot.tscn" id="1_7tx8y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s1cy7"]
 sky_top_color = Color(0.611765, 0.760784, 0.901961, 1)
@@ -27,6 +26,7 @@ data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0,
 [sub_resource type="BoxMesh" id="BoxMesh_x0y38"]
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.124668, 0.521436, -0.10183)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.975917, -0.168325, 0.138756, 0, 0.636078, 0.771625, -0.218143, 0.753041, -0.620759, 0, 0, 0)
@@ -36,14 +36,10 @@ directional_shadow_max_distance = 101.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5cmo1")
 
-[node name="maxdamage_zombie-low-poly" parent="." instance=ExtResource("1_g7tiy")]
-transform = Transform3D(-1, 0, -2.62269e-07, 0, 1, 0, 2.62269e-07, 0, -1, 0, 0.204062, 0)
-script = ExtResource("2_1u534")
-
-[node name="neck" type="Node3D" parent="maxdamage_zombie-low-poly"]
+[node name="maxdamage_zombie-low-poly@neck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29011e-08, 1.32343, -0.0873193)
 
-[node name="Camera3D" type="Camera3D" parent="maxdamage_zombie-low-poly/neck"]
+[node name="maxdamage_zombie-low-poly@neck@Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 6.78802e-08, 8.93658e-09, -6.78802e-08, 0.965926, 0.258819, 8.93661e-09, -0.258819, 0.965926, -9.28297e-07, 0.194212, 3.53949)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -58,3 +54,6 @@ shape = SubResource("ConcavePolygonShape3D_ch0vj")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(4.47373, 0, 0, 0, 1.62289, 0, 0, 0, 0.397918, 0, 0.816522, 3.8277)
 mesh = SubResource("BoxMesh_x0y38")
+
+[node name="bigfoot2" parent="." instance=ExtResource("1_7tx8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.601621, -0.0159081, -1.76998)

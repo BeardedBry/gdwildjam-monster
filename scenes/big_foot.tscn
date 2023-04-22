@@ -1,5 +1,6 @@
-[gd_scene load_steps=31 format=3 uid="uid://xpul15jv1023"]
+[gd_scene load_steps=33 format=3 uid="uid://xpul15jv1023"]
 
+[ext_resource type="Texture2D" uid="uid://d20m3q2o27wel" path="res://assets/bigfoot_tex.png" id="1_mnroi"]
 [ext_resource type="AnimationLibrary" uid="uid://rheybpp0mmx2" path="res://lib/animations/bigfoot.res" id="2_543l7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i70os"]
@@ -148,6 +149,9 @@ bind/39/pose = Transform3D(1, -3.72529e-08, 1.05705e-07, 1.42434e-07, 1.72295e-0
 bind/40/name = &"mixamorig_RightToe_End"
 bind/40/bone = -1
 bind/40/pose = Transform3D(1, -3.72529e-08, 1.23517e-07, 1.60304e-07, 1.75554e-07, 1, 2.23517e-08, -1, 2.007e-07, 0.238261, -0.365991, 0.00317837)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vs52r"]
+albedo_texture = ExtResource("1_mnroi")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_msybx"]
 
@@ -707,58 +711,72 @@ bones/40/scale = Vector3(1, 1, 1)
 [node name="foot_L" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 mesh = SubResource("ArrayMesh_un3oc")
 skin = SubResource("Skin_i42q0")
+surface_material_override/0 = SubResource("StandardMaterial3D_vs52r")
 
 [node name="foot_R" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 mesh = SubResource("ArrayMesh_4g21o")
 skin = SubResource("Skin_i42q0")
+surface_material_override/0 = SubResource("StandardMaterial3D_vs52r")
 
 [node name="hand_L" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 mesh = SubResource("ArrayMesh_7jxxt")
 skin = SubResource("Skin_i42q0")
+surface_material_override/0 = SubResource("StandardMaterial3D_vs52r")
 
 [node name="hand_R" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 mesh = SubResource("ArrayMesh_6qio5")
 skin = SubResource("Skin_i42q0")
+surface_material_override/0 = SubResource("StandardMaterial3D_vs52r")
 
 [node name="head" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 mesh = SubResource("ArrayMesh_0exvu")
 skin = SubResource("Skin_i42q0")
+surface_material_override/0 = SubResource("StandardMaterial3D_vs52r")
 
 [node name="lower_arm_L" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 mesh = SubResource("ArrayMesh_mu8qe")
 skin = SubResource("Skin_i42q0")
+surface_material_override/0 = SubResource("StandardMaterial3D_vs52r")
 
 [node name="lower_arm_R" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 mesh = SubResource("ArrayMesh_gugvh")
 skin = SubResource("Skin_i42q0")
+surface_material_override/0 = SubResource("StandardMaterial3D_vs52r")
 
 [node name="lower_leg_L" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 mesh = SubResource("ArrayMesh_ccu51")
 skin = SubResource("Skin_i42q0")
+surface_material_override/0 = SubResource("StandardMaterial3D_vs52r")
 
 [node name="lower_leg_R" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 mesh = SubResource("ArrayMesh_jqmts")
 skin = SubResource("Skin_i42q0")
+surface_material_override/0 = SubResource("StandardMaterial3D_vs52r")
 
 [node name="torso" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 mesh = SubResource("ArrayMesh_wattj")
 skin = SubResource("Skin_i42q0")
+surface_material_override/0 = SubResource("StandardMaterial3D_vs52r")
 
 [node name="upper_arm_L" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 mesh = SubResource("ArrayMesh_kxhdm")
 skin = SubResource("Skin_i42q0")
+surface_material_override/0 = SubResource("StandardMaterial3D_vs52r")
 
 [node name="upper_arm_R" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 mesh = SubResource("ArrayMesh_rv7tv")
 skin = SubResource("Skin_i42q0")
+surface_material_override/0 = SubResource("StandardMaterial3D_vs52r")
 
 [node name="upper_leg_L" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 mesh = SubResource("ArrayMesh_kwp0x")
 skin = SubResource("Skin_i42q0")
+surface_material_override/0 = SubResource("StandardMaterial3D_vs52r")
 
 [node name="upper_leg_R" type="MeshInstance3D" parent="Armature/GeneralSkeleton"]
 mesh = SubResource("ArrayMesh_vlpl4")
 skin = SubResource("Skin_i42q0")
+surface_material_override/0 = SubResource("StandardMaterial3D_vs52r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
