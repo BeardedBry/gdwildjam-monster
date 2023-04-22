@@ -44,6 +44,7 @@ script = ExtResource("2_1u534")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29011e-08, 1.32343, -0.0873193)
 
 [node name="Camera3D" type="Camera3D" parent="maxdamage_zombie-low-poly/neck"]
+transform = Transform3D(1, 6.78802e-08, 8.93658e-09, -6.78802e-08, 0.965926, 0.258819, 8.93661e-09, -0.258819, 0.965926, -9.28297e-07, 0.194212, 3.53949)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, -7.35137e-08, 0, 7.35137e-08, 1, 0, 0, 0)
