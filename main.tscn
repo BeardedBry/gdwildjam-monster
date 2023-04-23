@@ -1,27 +1,45 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtfaknj50ty2y"]
+[gd_scene load_steps=18 format=3 uid="uid://dtfaknj50ty2y"]
 
 [ext_resource type="Texture2D" uid="uid://dlgbki3u44qi1" path="res://TestTextures/Ground047_2K_Color.jpg" id="1_2ayc7"]
-[ext_resource type="Texture2D" uid="uid://ctu5yilyyc8ng" path="res://TestTextures/Pave/PavingStones046_2K_Color.jpg" id="2_ddim4"]
-[ext_resource type="PackedScene" path="res://scenes/man.tscn" id="3_yyn2c"]
-[ext_resource type="PackedScene" uid="uid://cs7ubrxkhhjhw" path="res://scenes/player.tscn" id="4_w5k1u"]
+[ext_resource type="Shader" path="res://Shader/sky.gdshader" id="1_q5mrh"]
+[ext_resource type="Texture2D" uid="uid://ck2h2uxm1nv3a" path="res://assets/skies/kloppenheim_07_puresky_1k.exr" id="2_demrl"]
+[ext_resource type="Texture2D" uid="uid://dvc233bfwk3i3" path="res://TestTextures/Paving_stone_07_2K_Base_Color.png" id="2_wllu3"]
+[ext_resource type="PackedScene" uid="uid://dqcpx5k2ond30" path="res://scenes/doodads/tree_01.tscn" id="3_tgi2m"]
+[ext_resource type="PackedScene" uid="uid://ingssbnm34ab" path="res://scenes/man.tscn" id="3_yyn2c"]
+[ext_resource type="PackedScene" uid="uid://v4ec0do81ofv" path="res://scenes/doodads/bush_06.tscn" id="4_7ai52"]
+[ext_resource type="PackedScene" uid="uid://buv7aiy1x0tdu" path="res://scenes/doodads/house_4.tscn" id="8_64qrk"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s1cy7"]
-sky_top_color = Color(0.611765, 0.760784, 0.901961, 1)
-sky_horizon_color = Color(0.701961, 0.731373, 0.757843, 1)
-ground_bottom_color = Color(0.196078, 0.164706, 0.129412, 1)
-ground_horizon_color = Color(0.701961, 0.731373, 0.757843, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7x6cg"]
+shader = ExtResource("1_q5mrh")
+shader_parameter/skyColor = Color(0.0862745, 0.266667, 0.509804, 1)
+shader_parameter/horizonColor = Color(0.490196, 0.203922, 0.360784, 1)
+shader_parameter/skyTEXTURE = ExtResource("2_demrl")
 
-[sub_resource type="Sky" id="Sky_2apby"]
-sky_material = SubResource("ProceduralSkyMaterial_s1cy7")
+[sub_resource type="Sky" id="Sky_nsthw"]
+sky_material = SubResource("ShaderMaterial_7x6cg")
+radiance_size = 2
 
 [sub_resource type="Environment" id="Environment_5cmo1"]
 background_mode = 2
-sky = SubResource("Sky_2apby")
+sky = SubResource("Sky_nsthw")
+ambient_light_source = 3
+reflected_light_source = 2
 tonemap_mode = 2
-glow_enabled = true
+glow_strength = 0.94
+glow_bloom = 0.88
+fog_enabled = true
+fog_aerial_perspective = 0.186
+fog_sky_affect = 0.862
+volumetric_fog_density = 0.3505
+volumetric_fog_emission_energy = 192.4
+volumetric_fog_gi_inject = 1.36
+volumetric_fog_ambient_inject = 1.17
+adjustment_contrast = 8.0
+adjustment_saturation = 8.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8un3"]
 albedo_texture = ExtResource("1_2ayc7")
+uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hicbm"]
 material = SubResource("StandardMaterial3D_j8un3")
@@ -33,17 +51,29 @@ data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0,
 [sub_resource type="BoxMesh" id="BoxMesh_x0y38"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4m1h"]
-albedo_texture = ExtResource("2_ddim4")
-uv1_scale = Vector3(4, 4, 4)
+albedo_texture = ExtResource("2_wllu3")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+grow_amount = -16.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w82w5"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.124668, 0.521436, -0.10183)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.901077, -0.147609, 0.407765, 0, 0.940288, 0.34038, -0.433659, 0.306708, -0.847272, 0, 12.5224, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 101.0
+sky_mode = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5cmo1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.76082, 0, 0, 0, 0.993717, -1.93258e-07, 0, 7.30518e-08, 2.62887, 0, 0, 0)
+transform = Transform3D(6.96696, 0, 0, 0, 0.993717, -5.15762e-07, 0, 7.30518e-08, 7.01586, 0, 0, 0)
 mesh = SubResource("PlaneMesh_hicbm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
@@ -53,14 +83,72 @@ shape = SubResource("ConcavePolygonShape3D_ch0vj")
 
 [node name="Environment" type="Node" parent="."]
 
-[node name="wall" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(4.47373, 0, 0, 0, 3.67216, 0, 0, 0, 0.397918, -0.124668, 2.54043, 3.72587)
+[node name="Walls" type="Node" parent="Environment"]
+
+[node name="wall" type="MeshInstance3D" parent="Environment/Walls"]
+transform = Transform3D(139, 0, 0, 0, 6.471, 0, 0, 0, 0.401, -0.125, 3.61629, 70)
 mesh = SubResource("BoxMesh_x0y38")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m4m1h")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Walls/wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Walls/wall/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_w82w5")
+
+[node name="wall2" type="MeshInstance3D" parent="Environment/Walls"]
+transform = Transform3D(139, 0, 0, 0, 6.471, 0, 0, 0, 0.401, -0.125, 3.61629, -70.4008)
+mesh = SubResource("BoxMesh_x0y38")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m4m1h")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Walls/wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Walls/wall2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_w82w5")
+
+[node name="wall3" type="MeshInstance3D" parent="Environment/Walls"]
+transform = Transform3D(-6.17149e-06, 0, -0.401, 0, 6.471, 0, 141.187, 0, -1.75283e-08, 69.113, 3.616, -0.4)
+mesh = SubResource("BoxMesh_x0y38")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m4m1h")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Walls/wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Walls/wall3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_w82w5")
+
+[node name="wall4" type="MeshInstance3D" parent="Environment/Walls"]
+transform = Transform3D(0, 0, -0.401, 0, 6.471, 0, 140.938, 0, 1.49012e-08, -69.843, 3.616, -0.45)
+mesh = SubResource("BoxMesh_x0y38")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m4m1h")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Walls/wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Walls/wall4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_w82w5")
+
+[node name="tree01" parent="Environment" instance=ExtResource("3_tgi2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73114, 0.749283, -0.277614)
+
+[node name="bush06" parent="Environment" instance=ExtResource("4_7ai52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.03293, 0.521436, 10.629)
+
+[node name="house4" parent="Environment" instance=ExtResource("8_64qrk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19.2476, 0.521436, 17.4442)
 
 [node name="man" parent="." instance=ExtResource("3_yyn2c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.33717, 7.7486e-07, 1.08831)
-
-[node name="Player" parent="." instance=ExtResource("4_w5k1u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
