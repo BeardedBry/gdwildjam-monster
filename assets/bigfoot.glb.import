@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjwomtulioeu4"
-path="res://.godot/imported/man.glb-4c8411e3b203756a2985d7eb2955a9cc.scn"
+uid="uid://y6a8swealqoh"
+path="res://.godot/imported/bigfoot.glb-6091da3705bfcd78fb03d09ef13b0ad0.scn"
 
 [deps]
 
-source_file="res://assets/humans/man.glb"
-dest_files=["res://.godot/imported/man.glb-4c8411e3b203756a2985d7eb2955a9cc.scn"]
+source_file="res://assets/bigfoot.glb"
+dest_files=["res://.godot/imported/bigfoot.glb-6091da3705bfcd78fb03d09ef13b0ad0.scn"]
 
 [params]
 
@@ -26,6 +26,7 @@ skins/use_named_skins=true
 animation/import=true
 animation/fps=30
 animation/trimming=false
+animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={}
-meshes/handle_gltf_embedded_images=1
+gltf/embedded_image_handling=1
