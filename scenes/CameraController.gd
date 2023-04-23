@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 
 	_rotation_input += Input.get_action_raw_strength("camera_left") - Input.get_action_raw_strength("camera_right")
 	_tilt_input += Input.get_action_raw_strength("camera_up") - Input.get_action_raw_strength("camera_down")
-
+	
 	if invert_mouse_y:
 		_tilt_input *= -1
 
@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		_aim_target = _camera_raycast.global_transform * _camera_raycast.target_position
 		_aim_target_normal = (global_position - _aim_target).normalized()
 		_aim_collider = null
-	
+
 	# Set camera controller to current ground level for the character
 	var target_position := _anchor.global_position + _offset
 	target_position.y = lerp(global_position.y, _anchor._ground_height, 0.1)
@@ -84,6 +84,7 @@ func setup(anchor: Node3D) -> void:
 func set_pivot(pivot_type: CAMERA_PIVOT) -> void:
 	if pivot_type == _current_pivot_type:
 		return
+	
 	match(pivot_type):
 		CAMERA_PIVOT.OVER_SHOULDER:
 			_over_shoulder_pivot.look_at(_aim_target)
