@@ -90,6 +90,7 @@ transform = Transform3D(139, 0, 0, 0, 6.471, 0, 0, 0, 0.401, -0.125, 3.61629, 70
 mesh = SubResource("BoxMesh_x0y38")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m4m1h")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/Walls/wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -103,11 +104,40 @@ transform = Transform3D(139, 0, 0, 0, 6.471, 0, 0, 0, 0.401, -0.125, 3.61629, -7
 mesh = SubResource("BoxMesh_x0y38")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m4m1h")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/Walls/wall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Walls/wall2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_w82w5")
+
+[node name="wall3" type="MeshInstance3D" parent="Environment/Walls"]
+transform = Transform3D(-6.17149e-06, 0, -0.401, 0, 6.471, 0, 141.187, 0, -1.75283e-08, 69.113, 3.616, -0.4)
+mesh = SubResource("BoxMesh_x0y38")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m4m1h")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Walls/wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Walls/wall3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_w82w5")
+
+[node name="wall4" type="MeshInstance3D" parent="Environment/Walls"]
+transform = Transform3D(0, 0, -0.401, 0, 6.471, 0, 140.938, 0, 1.49012e-08, -69.843, 3.616, -0.45)
+mesh = SubResource("BoxMesh_x0y38")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m4m1h")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Walls/wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Walls/wall4/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_w82w5")
 
