@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 	_euler_rotation.x = clamp(_euler_rotation.x, tilt_lower_limit, tilt_upper_limit)
 	_euler_rotation.y += _rotation_input * delta
 
-	transform.basis = transform.basis.from_euler(_euler_rotation)
+	transform.basis = Basis.from_euler(_euler_rotation)
 	
 	_camera.global_transform = _pivot.global_transform
 	_camera.rotation.z = 0
