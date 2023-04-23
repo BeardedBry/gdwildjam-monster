@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://xpul15jv1023"]
+[gd_scene load_steps=34 format=3 uid="uid://xpul15jv1023"]
 
 [ext_resource type="Texture2D" uid="uid://d20m3q2o27wel" path="res://assets/bigfoot_tex.png" id="1_mnroi"]
 [ext_resource type="AnimationLibrary" uid="uid://rheybpp0mmx2" path="res://lib/animations/bigfoot.res" id="2_543l7"]
@@ -413,6 +413,8 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qq5hu"]
+
 [node name="bigfoot2" type="CharacterBody3D"]
 
 [node name="Armature" type="Node3D" parent="."]
@@ -782,3 +784,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vs52r")
 libraries = {
 "bigfoot": ExtResource("2_543l7")
 }
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.1882, 0, 0, 0, 1.1882, 0, 0, 0, 1.1882, 0, 1.16142, 0.0734857)
+shape = SubResource("CapsuleShape3D_qq5hu")
