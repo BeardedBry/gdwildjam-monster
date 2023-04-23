@@ -1,14 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://dtfaknj50ty2y"]
+[gd_scene load_steps=18 format=3 uid="uid://dtfaknj50ty2y"]
 
 [ext_resource type="Texture2D" uid="uid://dlgbki3u44qi1" path="res://TestTextures/Ground047_2K_Color.jpg" id="1_2ayc7"]
-[ext_resource type="PackedScene" uid="uid://xpul15jv1023" path="res://scenes/big_foot.tscn" id="1_7tx8y"]
 [ext_resource type="Shader" path="res://Shader/sky.gdshader" id="1_q5mrh"]
 [ext_resource type="Texture2D" uid="uid://ck2h2uxm1nv3a" path="res://assets/skies/kloppenheim_07_puresky_1k.exr" id="2_demrl"]
 [ext_resource type="Texture2D" uid="uid://dvc233bfwk3i3" path="res://TestTextures/Paving_stone_07_2K_Base_Color.png" id="2_wllu3"]
 [ext_resource type="PackedScene" uid="uid://dqcpx5k2ond30" path="res://scenes/doodads/tree_01.tscn" id="3_tgi2m"]
 [ext_resource type="PackedScene" uid="uid://ingssbnm34ab" path="res://scenes/man.tscn" id="3_yyn2c"]
 [ext_resource type="PackedScene" uid="uid://v4ec0do81ofv" path="res://scenes/doodads/bush_06.tscn" id="4_7ai52"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="4_ipjuh"]
 [ext_resource type="PackedScene" uid="uid://buv7aiy1x0tdu" path="res://scenes/doodads/house_4.tscn" id="8_64qrk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7x6cg"]
@@ -59,6 +57,9 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 grow_amount = -16.0
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w82w5"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.124668, 0.521436, -0.10183)
 
@@ -90,6 +91,26 @@ mesh = SubResource("BoxMesh_x0y38")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m4m1h")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Walls/wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Walls/wall/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_w82w5")
+
+[node name="wall2" type="MeshInstance3D" parent="Environment/Walls"]
+transform = Transform3D(139, 0, 0, 0, 6.471, 0, 0, 0, 0.401, -0.125, 3.61629, -70.4008)
+mesh = SubResource("BoxMesh_x0y38")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_m4m1h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Walls/wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Walls/wall2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_w82w5")
+
 [node name="tree01" parent="Environment" instance=ExtResource("3_tgi2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73114, 0.749283, -0.277614)
 
@@ -98,13 +119,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.03293, 0.521436, 10.629)
 
 [node name="house4" parent="Environment" instance=ExtResource("8_64qrk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -19.2476, 0.521436, 17.4442)
-
-[node name="bigfoot" parent="." instance=ExtResource("1_7tx8y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.606768, -0.0159081, -1.76216)
-script = ExtResource("4_ipjuh")
-
-[node name="Camera3D" type="Camera3D" parent="bigfoot"]
-transform = Transform3D(-1, 0, -8.74228e-08, -4.37114e-08, 0.866025, 0.5, 7.57103e-08, 0.5, -0.866025, 0, 2.75205, -2.60575)
 
 [node name="man" parent="." instance=ExtResource("3_yyn2c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.33717, 7.7486e-07, 1.08831)
