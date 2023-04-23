@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://xpul15jv1023" path="res://scenes/big_foot.tscn" id="1_7tx8y"]
 [ext_resource type="Texture2D" uid="uid://ctu5yilyyc8ng" path="res://TestTextures/Pave/PavingStones046_2K_Color.jpg" id="2_ddim4"]
 [ext_resource type="PackedScene" uid="uid://ingssbnm34ab" path="res://scenes/man.tscn" id="3_yyn2c"]
-[ext_resource type="Script" path="res://scenes/big_foot.gd" id="4_sebs4"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="4_ipjuh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s1cy7"]
 sky_top_color = Color(0.611765, 0.760784, 0.901961, 1)
@@ -62,7 +62,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_m4m1h")
 
 [node name="bigfoot" parent="." instance=ExtResource("1_7tx8y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.606768, -0.0159081, -1.76216)
-script = ExtResource("4_sebs4")
+script = ExtResource("4_ipjuh")
 
 [node name="Camera3D" type="Camera3D" parent="bigfoot"]
 transform = Transform3D(-1, 0, -8.74228e-08, -4.37114e-08, 0.866025, 0.5, 7.57103e-08, 0.5, -0.866025, 0, 2.75205, -2.60575)
